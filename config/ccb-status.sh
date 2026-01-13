@@ -5,17 +5,17 @@
 CCB_DIR="${CCB_DIR:-$HOME/.local/share/ccb}"
 TMP_DIR="${TMPDIR:-/tmp}"
 
-# Color codes for tmux status bar (Catppuccin Mocha palette - vibrant)
-C_GREEN="#[fg=#a6e3a1,bold]"
-C_RED="#[fg=#f38ba8,bold]"
-C_YELLOW="#[fg=#f9e2af,bold]"
-C_BLUE="#[fg=#89b4fa,bold]"
-C_PURPLE="#[fg=#cba6f7,bold]"
-C_ORANGE="#[fg=#fab387,bold]"
-C_PINK="#[fg=#f5c2e7,bold]"
-C_TEAL="#[fg=#94e2d5,bold]"
+# Color codes for tmux status bar (Tokyo Night palette)
+C_GREEN="#[fg=#9ece6a,bold]"
+C_RED="#[fg=#f7768e,bold]"
+C_YELLOW="#[fg=#e0af68,bold]"
+C_BLUE="#[fg=#7aa2f7,bold]"
+C_PURPLE="#[fg=#bb9af7,bold]"
+C_ORANGE="#[fg=#ff9e64,bold]"
+C_PINK="#[fg=#ff007c,bold]"
+C_TEAL="#[fg=#7dcfff,bold]"
 C_RESET="#[fg=default,nobold]"
-C_DIM="#[fg=#6c7086]"
+C_DIM="#[fg=#565f89]"
 
 # Check if a daemon is running by looking for its PID file or process
 check_daemon() {
@@ -122,26 +122,27 @@ main() {
 
         compact)
             # Compact colorful status with individual daemon icons
-            local output="${C_PINK}CCB${C_RESET}"
+            local output="${C_PINK}CCB${C_RESET} "
             local icons=""
 
+            # Use circles/dots for status
             if [[ $(check_daemon "cask") == "on" ]]; then
-                icons+="${C_ORANGE}X${C_RESET}"
+                icons+="${C_ORANGE}●${C_RESET} "
             else
-                icons+="${C_DIM}x${C_RESET}"
+                icons+="${C_DIM}○${C_RESET} "
             fi
             if [[ $(check_daemon "gask") == "on" ]]; then
-                icons+="${C_TEAL}G${C_RESET}"
+                icons+="${C_TEAL}●${C_RESET} "
             else
-                icons+="${C_DIM}g${C_RESET}"
+                icons+="${C_DIM}○${C_RESET} "
             fi
             if [[ $(check_daemon "oask") == "on" ]]; then
-                icons+="${C_PURPLE}O${C_RESET}"
+                icons+="${C_PURPLE}●${C_RESET}"
             else
-                icons+="${C_DIM}o${C_RESET}"
+                icons+="${C_DIM}○${C_RESET}"
             fi
 
-            echo "${output}[${icons}]"
+            echo "${output}${icons}"
             ;;
 
         pane)

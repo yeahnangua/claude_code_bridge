@@ -27,16 +27,16 @@ set_border() {
 
 case "$key" in
     Codex)
-        set_border "fg=#ff9e64,bold"
+        set_border "fg=#ff9e64,bold" # Orange
         ;;
     Gemini)
-        set_border "fg=#a6e3a1,bold"
+        set_border "fg=#7dcfff,bold" # Cyan
         ;;
     Claude)
-        set_border "fg=#f38ba8,bold"
+        set_border "fg=#bb9af7,bold" # Purple
         ;;
     OpenCode)
-        set_border "fg=#ff79c6,bold"
+        set_border "fg=#9ece6a,bold" # Green
         ;;
     *)
         case "$title" in
@@ -44,16 +44,16 @@ case "$key" in
                 set_border "fg=#ff9e64,bold"
                 ;;
             CCB-Gemini*)
-                set_border "fg=#a6e3a1,bold"
+                set_border "fg=#7dcfff,bold"
                 ;;
             Claude*)
-                set_border "fg=#f38ba8,bold"
+                set_border "fg=#bb9af7,bold"
                 ;;
             CCB-OpenCode*)
-                set_border "fg=#ff79c6,bold"
+                set_border "fg=#9ece6a,bold"
                 ;;
             *)
-                set_border "fg=#7aa2f7,bold"
+                set_border "fg=#7aa2f7,bold" # Blue (default)
                 ;;
         esac
         ;;
